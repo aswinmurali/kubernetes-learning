@@ -1,8 +1,10 @@
-node {
-	stage('Build') {
-		echo "Build"
-	}
-	stage('Test') {
-		echo "Test"
-	}
+//declarative scripting
+pipeline{
+    agent any
+    stages{
+        stage(checkout)
+         steps {
+             echo"checkout is done"
+         }
+    }
 }
