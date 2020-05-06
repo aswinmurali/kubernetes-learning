@@ -12,7 +12,9 @@ pipeline {
                 echo "Build is running"
             }
         }
-        post{
+       
+    }
+     post {
             success{
                 echo "The build ran successfully"
             }
@@ -21,5 +23,4 @@ pipeline {
             }
 
         }
-    }
 }
