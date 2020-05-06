@@ -1,0 +1,13 @@
+//scripted file
+node
+{
+    stage (checkout) {
+    echo "The checkout is being done"
+    }
+    stage (compilation){
+        echo "compilation step is done"
+    }
+    stage (successfull){
+        echo "The build ran successfully"
+    }
+}
