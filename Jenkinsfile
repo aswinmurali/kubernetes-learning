@@ -12,5 +12,14 @@ pipeline {
                 echo "Build is running"
             }
         }
+        post{
+            success{
+                echo "The build ran successfully"
+            }
+            failure{
+                echo "There is a failure"
+            }
+
+        }
     }
 }
