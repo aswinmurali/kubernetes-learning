@@ -2,14 +2,14 @@
 pipeline {
     agent any
     stages {
-        stage ('checkout'){
+        stage ('Build'){
          steps {
-             echo"checkout is done"
+             echo"Build is done"
          }
         }
-        stage ('Build'){
+        stage ('Test'){
             steps{
-                echo "Build is running"
+                echo "Test is running"
             }
         }
        
