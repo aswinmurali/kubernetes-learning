@@ -1,15 +1,16 @@
-//scripted pipeline
-node {
-    stage ('compilation'){
-    sh 'mvn --version'
+//declarative pipeline
+pipeline {
+    agent any
+    stages{
+        stage ('Build'){
+        steps{
+            echo "Build is running"
+        }
     }
-    stage ('build'){
-         echo "Build is running"
-    
+    stage ('Test'){
+        steps {
+            echo "Test is happenning"
+        }
     }
-   {
-       stage ('test')
-       echo "testing is in progress"
-   }
-    
+}
 }
