@@ -23,7 +23,7 @@ steps {
         }
         }
         post {
-            sucess {
+            success {
                 echo "Always successful"
             }
             failure{
