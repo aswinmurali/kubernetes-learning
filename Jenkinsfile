@@ -17,7 +17,8 @@ pipeline {
     stage ('Build'){
         steps {
             sh 'echo "The Java version is " $(java -version)'
-            sh 'echo "The maven version is " $(maven -version'
+            sh 'echo "The maven version is " $(maven -version)'
+            sh 'echo "Path is " $(PATH)'
             echo "Build number - $env.BUILD_NUMBER"
         }
     }
