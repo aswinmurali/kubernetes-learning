@@ -1,7 +1,7 @@
 //declarative pipeline
 pipeline {
-    //agent any
-    agent {docker {image 'maven:3.6.3'}}
+    agent any
+    //agent {docker {image 'maven:3.6.3'}}
     stages{
         stage ('checkout'){
         steps{
@@ -10,7 +10,8 @@ pipeline {
     }
     stage ('Build'){
         steps {
-            sh 'echo "The maven version is " $(mvn --version)'
+            sh 'echo "The Java version is " $(java --version)'
+            echo "Build number - $env.BUILD_NUMBER"
         }
     }
 }
