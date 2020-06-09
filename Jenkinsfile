@@ -1,37 +1,33 @@
-//declarative pipeline
 pipeline {
-    agent any
+    agent any 
     environment {
-        dockerHome = tool 'docker'
         mavenHome = tool 'maven'
-        PATH = "$dockerHome/bin:$mavenHome/bin:$PATH" 
-
+        PATH = "$mavenHome/bin:$PATH"
     }
-    //agent {docker {image 'maven:3.6.3'}}
-    stages{
-        stage ('checkout'){
-        steps{
-            echo "checkout is running"
+    stages {
+        stage  ('checkout') {
+steps {
+                sh 'echo "checkout is running"'
+            }
+        }
+        stage ('compile') {
+            steps {
+           sh 'mvn --version'
+           sh 'mvn clean compile'
+            }
+        }
+        stage('Unit Test') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+        }
+        post {
+            sucess {
+                echo "Always successful"
+            }
+            failure{
+                echo "Your build has failed to run"
+            }
         }
     }
-    stage ('Build'){
-        steps {
-            sh 'echo "The Java version is " $(java -version)'
-            sh 'echo "The maven version is " $(mvn --version)'
-            sh 'echo "Path is " $PATH'
-            echo "Build number - $env.BUILD_NUMBER"
-        }
-    }
-}
-post{
-    always{
-    echo "always run"
-    }
-    success{
-    echo "sucessful"
-    }
-    failure{
-    echo "failure"
-    }
-}
-}
